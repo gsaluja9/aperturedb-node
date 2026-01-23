@@ -117,7 +117,7 @@ export interface FindDescriptorOptions {
   k_neighbors?: number;
   knn_first?: boolean;
   engine?: 'HNSW' | 'Flat';
-  metric?: 'L2' | 'IP' | 'COSINE';
+  metric?: 'L2' | 'IP' | 'CS';
   labels?: boolean;
   distances?: boolean;
   blobs?: boolean;
@@ -151,7 +151,7 @@ export interface DescriptorSetResponse extends DescriptorSet {
 export interface DescriptorSet {
   name: string;
   dimensions: number;
-  metric: 'L2' | 'IP' | 'COSINE';
+  metric: 'L2' | 'IP' | 'CS';
   engine: 'HNSW' | 'Flat';
   [key: string]: any;  // Allow any properties at the base level
 }
@@ -361,7 +361,7 @@ export interface BoundingBoxMetadata {
   created_at?: string;
   updated_at?: string;
   _uniqueid?: string;
-  [key: string]: any; 
+  [key: string]: any;
 }
 
 export interface CreateBoundingBoxInput {
@@ -427,7 +427,7 @@ export interface EntityMetadata {
   created_at?: string;
   updated_at?: string;
   _uniqueid?: string;
-  [key: string]: any;  
+  [key: string]: any;
 }
 
 export interface CreateEntityInput {
@@ -443,4 +443,4 @@ export interface FindEntityOptions {
     properties?: string[];
   };
   uniqueids?: string[];
-} 
+}
