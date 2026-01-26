@@ -12,7 +12,7 @@ To install directly from GitHub, add the following to your `package.json` depend
 ```json
 {
   "dependencies": {
-    "@coffeeblackai/aperturedb-node": "coffeeblackai/aperturedb-node"
+    "aperturedb": "^0.0.2"
   }
 }
 ```
@@ -20,13 +20,13 @@ To install directly from GitHub, add the following to your `package.json` depend
 Or install using npm:
 
 ```bash
-npm install github:coffeeblackai/aperturedb-node
+npm install aperturedb
 ```
 
 Or using yarn:
 
 ```bash
-yarn add github:coffeeblackai/aperturedb-node
+yarn add aperturedb
 ```
 
 ## Configuration
@@ -98,7 +98,7 @@ const entity = await client.entities.addEntity('dataset', {
 To find an entity by name, use the `findEntities` method:
 
 ```typescript
-const entities = await client.entities.findEntities({ 
+const entities = await client.entities.findEntities({
   with_class: 'dataset',
   constraints: { name: ['==', 'test-dataset'] }
 });
@@ -126,4 +126,4 @@ await client.entities.deleteEntity({
   class: 'dataset',
   constraints: { _uniqueid: ['==', testEntityId] }
 });
-``` 
+```
