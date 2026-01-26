@@ -12,8 +12,6 @@ type ProtobufQueryMessage = protobuf.Message<QueryMessageData> & QueryMessageDat
 
 // Load the proto file
 const root = new protobuf.Root();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 const protoPath = join(__dirname, 'queryMessage.proto');
 const QueryMessageType = root.loadSync(protoPath).lookupType('VDMS.protobufs.queryMessage');
 
@@ -50,7 +48,7 @@ export class QueryMessage {
   public toBuffer(): Buffer {
     const errMsg = QueryMessageType.verify(this.message);
     if (errMsg) throw Error(errMsg);
-    
+
     const encoded = QueryMessageType.encode(this.message).finish();
     return Buffer.from(encoded);
   }
@@ -77,4 +75,4 @@ export class QueryMessage {
   public getBlobs(): Buffer[] {
     return this.message.blobs || [];
   }
-} 
+}
